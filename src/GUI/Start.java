@@ -8,14 +8,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import static javafx.application.Application.launch;
 
-public class Start extends Application implements GUI {
+public class Start extends Application{
     final ToggleGroup mode = new ToggleGroup();
     RadioButton onePlayer;
     RadioButton twoPlayer;
@@ -78,7 +77,4 @@ public class Start extends Application implements GUI {
         }
     }
 
-    public static void main(String[] args){
-        launch(args);
-    }
 }
