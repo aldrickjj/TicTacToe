@@ -5,4 +5,5 @@ public interface GameInterface {
     public Player[] getPlayers();
     public String[][] getBoard();
     public void clearBoard();
+    public void startGame();
 }

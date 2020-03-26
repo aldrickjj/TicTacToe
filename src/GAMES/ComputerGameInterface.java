@@ -3,6 +3,7 @@ package GAMES;
 public class ComputerGameInterface implements GameInterface {
     private Player player, pc;
     private String[][] board = null;
+    private Player term = null;
 
     public ComputerGameInterface(int boardDimension) {
         this.player = createPlayer("Player", "X");
@@ -33,5 +34,10 @@ public class ComputerGameInterface implements GameInterface {
                 board[i][j] = " ";
             }
         }
+    }
+
+    @Override
+    public void startGame() {
+
     }
 }
