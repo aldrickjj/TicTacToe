@@ -1,6 +1,5 @@
 package GUI;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -10,47 +9,44 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
-import static javafx.application.Application.launch;
+public class Start{
+    private final ToggleGroup mode = new ToggleGroup();
+    private RadioButton onePlayer;
+    private RadioButton twoPlayer;
+    private Button start;
+    private Label placeholder;
+    private Scene scene;
 
-public class Start extends Application{
-    final ToggleGroup mode = new ToggleGroup();
-    RadioButton onePlayer;
-    RadioButton twoPlayer;
-    Button start;
-    Label placeholder;
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        stage.setTitle("Color Picker");
-
+    public Start(){
         //sets up buttons
-        onePlayer = new RadioButton();
-        twoPlayer = new RadioButton();
-        start = new Button();
-        onePlayer.setText("1 Player");
-        twoPlayer.setText("2 Players");
+        onePlayer = new RadioButton("1 Player");
+        twoPlayer = new RadioButton("2 Players");
+        start = new Button("Start");
         onePlayer.setToggleGroup(mode);
         twoPlayer.setToggleGroup(mode);
-        start.setText("Start");
         start.setOnAction(new modeSelectionHandler());
         placeholder = new Label("");
         placeholder.setVisible(false);
+        Label gap = new Label("");
+        gap.setVisible(false);
 
         //makes pane and adds all buttons to plane
-        GridPane pane = new GridPane();
-        pane.add(onePlayer,0,0);
-        pane.add(twoPlayer,1,0);
-        pane.add(start,1,1);
-        pane.add(placeholder, 1, 2);
+        GridPane grid = new GridPane();
+        grid.add(onePlayer,0,0);
+        grid.add(gap, 1, 1);
+        grid.add(twoPlayer,2,0);
+        grid.add(start,1,3);
+        //pane.add(gap, 1, 2);
+        grid.add(placeholder, 1, 4);
 
-        //makes scene and displays
-        Scene scene = new Scene(pane, 600, 400);
-        stage.setScene(scene);
-        stage.show();
+        //makes scene
+        scene = new Scene(grid, 800, 600);
     }
 
+    public Scene getScene(){
+        return this.scene;
+    }
 
     class modeSelectionHandler implements EventHandler<ActionEvent> {
         @Override
