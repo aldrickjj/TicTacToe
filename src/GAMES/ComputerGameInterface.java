@@ -39,6 +39,11 @@ public class ComputerGameInterface implements GameInterface {
         }
     }
 
+    @Override
+    public Player getCurrentPlayer() {
+        return this.term;
+    }
+
     private boolean isMoveLegal(int x, int y) {
         return this.board[y][x].equals(" ");
     }
