@@ -58,12 +58,12 @@ public class HumanGameInterface implements GameInterface {
             return false;
         }
         this.board[y][x] = symbol;
-        moveNumber += 1;
+        this.moveNumber += 1;
         if(isGameOver()) {
             this.winner = this.term;
         }
         changeTerm();
-        //System.out.println("here");
+        System.out.println(this.moveNumber);
         return true;
     }
 

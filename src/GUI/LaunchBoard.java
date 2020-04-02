@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -77,8 +78,10 @@ public class LaunchBoard extends Application {
 
         for(int i = 0; i < tableButtonArray.length; i += 1) {
             Label tableLabel = new Label();
-            tableLabel.setLayoutX((i / 5) * 100.0 + 25.0);
+            tableLabel.setMinSize(100.0, 100.0);
+            tableLabel.setLayoutX((i / 5) * 100.0);
             tableLabel.setLayoutY((i % 5) * 100.0 + 100.0);
+            tableLabel.setAlignment(Pos.CENTER);
             tableLabel.setFont(new Font(72));
             tableLabel.setText("");
             tableLabel.setVisible(false);
