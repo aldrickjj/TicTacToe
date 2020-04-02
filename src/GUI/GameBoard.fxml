@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GameBoard">
+   <children>
+     <Pane prefHeight="100.0" prefWidth="500.0" />
+      <ImageView fitHeight="500.0" fitWidth="500.0" layoutX="0.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Table.jpg" />
+         </image></ImageView>
+     <Pane prefHeight="100.0" prefWidth="500.0">
+         <children>
+            <Button layoutX="100.0" layoutY="35.0" mnemonicParsing="false" text="Button" />
+            <Button layoutX="300.0" layoutY="35.0" mnemonicParsing="false" text="Button" />
+         </children></Pane>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GameBoard">
-</AnchorPane>
+   </children>
+</FlowPane>
