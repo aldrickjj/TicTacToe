@@ -21,6 +21,13 @@ public class GameBoard extends Application{
     @FXML
     Label termLabel;
 
+    @FXML
+    Button tableButton1, tableButton2, tableButton3, tableButton4, tableButton5,
+            tableButton6, tableButton7, tableButton8, tableButton9, tableButton10,
+            tableButton11, tableButton12, tableButton13, tableButton14, tableButton15,
+            tableButton16, tableButton17, tableButton18, tableButton19, tableButton20,
+            tableButton21, tableButton22, tableButton23, tableButton24, tableButton25;
+
     @Override
     public void start(Stage stage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("GameBoard.fxml"));
