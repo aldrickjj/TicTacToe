@@ -41,6 +41,7 @@ public class LaunchBoard extends Application {
         gameOverLabel.setFont(new Font(100));
         gameOverLabel.setLayoutX(0.0);
         gameOverLabel.setLayoutY(100.0);
+        gameOverLabel.setText("");
         gameOverLabel.setVisible(false);
 
         Button[] tableButtonArray = {tableButton1, tableButton2, tableButton3, tableButton4, tableButton5,
@@ -145,10 +146,10 @@ public class LaunchBoard extends Application {
                 if(game.isGameOver()) {
                     Player winner = game.getWinner();
                     if(winner != null) {
-                        gameOverLabel.setText(symbol + " Won!");
+                        currentTermLabel.setText(symbol + " Won!");
                     }
                     else {
-                        gameOverLabel.setText("Tied!");
+                        currentTermLabel.setText("Tied!");
                     }
                     gameOverLabel.setVisible(true);
                     return;
