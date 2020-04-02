@@ -173,6 +173,7 @@ public class LaunchBoard extends Application {
                 label.setText("");
                 label.setVisible(false);
             }
+            gameOverLabel.setVisible(false);
         }
     }
 }
