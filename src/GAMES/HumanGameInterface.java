@@ -49,6 +49,7 @@ public class HumanGameInterface implements GameInterface {
         return this.board[y][x].equals(" ");
     }
 
+    @Override
     public boolean makeTerm(int x, int y) {
         String symbol = this.term.getSymbol();
         if(isMoveLegal(x, y)){

@@ -77,11 +77,14 @@ public class GameBoard extends Application{
 
         @Override
         public void handle(ActionEvent e) {
+            Button button = null;
             try {
-                Button button = (Button) e.getSource();
+                button = (Button) e.getSource();
             } catch (Exception error) {
                 System.exit(0);
             }
+            Label label = labelToButtonMap.get(button);
+            Integer[] tableIndex = tableButtonMap.get(button);
             
         }
     }

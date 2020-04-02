@@ -7,6 +7,7 @@ public interface GameInterface {
     public String[][] getBoard();
     public Player getWinner();
     public String getCurrentSymbol();
+    public boolean makeTerm(int x, int y);
     public boolean isGameOver();
     public void clearBoard();
     public void startGame();
