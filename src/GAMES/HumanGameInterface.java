@@ -54,6 +54,7 @@ public class HumanGameInterface implements GameInterface {
     public boolean makeTerm(int x, int y) {
         String symbol = this.term.getSymbol();
         if(isMoveLegal(x, y)){
+            System.out.println("illegal");
             return false;
         }
         this.board[y][x] = symbol;
@@ -62,6 +63,7 @@ public class HumanGameInterface implements GameInterface {
             this.winner = this.term;
         }
         changeTerm();
+        //System.out.println("here");
         return true;
     }
 

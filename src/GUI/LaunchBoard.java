@@ -34,17 +34,17 @@ public class LaunchBoard extends Application {
             tableButton16, tableButton17, tableButton18, tableButton19, tableButton20,
             tableButton21, tableButton22, tableButton23, tableButton24, tableButton25;
 
-    Button[] tableButtonArray = {tableButton1, tableButton2, tableButton3, tableButton4, tableButton5,
-            tableButton6, tableButton7, tableButton8, tableButton9, tableButton10,
-            tableButton11, tableButton12, tableButton13, tableButton14, tableButton15,
-            tableButton16, tableButton17, tableButton18, tableButton19, tableButton20,
-            tableButton21, tableButton22, tableButton23, tableButton24, tableButton25};
-
     public static void main(String[] args) {launch(args);}
 
     @Override
     public void start(Stage stage) throws IOException {
-        //Parent root = FXMLLoader.load(getClass().getResource("GameBoard.fxml"));
+
+        Button[] tableButtonArray = {tableButton1, tableButton2, tableButton3, tableButton4, tableButton5,
+                tableButton6, tableButton7, tableButton8, tableButton9, tableButton10,
+                tableButton11, tableButton12, tableButton13, tableButton14, tableButton15,
+                tableButton16, tableButton17, tableButton18, tableButton19, tableButton20,
+                tableButton21, tableButton22, tableButton23, tableButton24, tableButton25};
+
         stage.setTitle("Tic Tac Toe!");
         Pane pane = new Pane();
 
@@ -91,6 +91,7 @@ public class LaunchBoard extends Application {
             tableButtonMap.put(tableButtonArray[i], tableIndex);
             labelToButtonMap.put(tableButtonArray[i], tableLabel);
             pane.getChildren().addAll(tableButtonArray[i], tableLabel);
+            tableButtonArray[i].setOnAction(new TableButtonHandler());
         }
 
         Button quitButton = new Button();
@@ -108,5 +109,35 @@ public class LaunchBoard extends Application {
         stage.setScene(new Scene(pane, 500, 700));
 
         stage.show();
+    }
+
+    class TableButtonHandler implements EventHandler<ActionEvent> {
+
+        @Override
+        public void handle(ActionEvent e) {
+            if(! game.gameStarted()) {
+                game.startGame();
+            }
+            Button button = null;
+            try {
+                button = (Button) e.getSource();
+            } catch (Exception error) {
+                System.exit(0);
+            }
+            String symbol = game.getCurrentSymbol();
+            Label label = labelToButtonMap.get(button);
+            Integer[] tableIndex = tableButtonMap.get(button);
+            if(button == null) {
+                System.out.println("Here");
+            }
+            if(game.makeTerm(tableIndex[0], tableIndex[1])) {
+                label.setText(symbol);
+                label.setVisible(true);
+            }
+
+            if(game.isGameOver()) {
+                System.exit(0);
+            }
+        }
     }
 }
