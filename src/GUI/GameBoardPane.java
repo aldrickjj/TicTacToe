@@ -6,10 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
-import javafx.scene.shape.*;
 
 import java.util.*;
 
@@ -23,12 +23,6 @@ public class GameBoardPane {
     private Label gameOverLabel = new Label();
     private Label currentTermLabel;
 
-    private Button tableButton1, tableButton2, tableButton3, tableButton4, tableButton5,
-            tableButton6, tableButton7, tableButton8, tableButton9, tableButton10,
-            tableButton11, tableButton12, tableButton13, tableButton14, tableButton15,
-            tableButton16, tableButton17, tableButton18, tableButton19, tableButton20,
-            tableButton21, tableButton22, tableButton23, tableButton24, tableButton25;
-
     public GameBoardPane(GameInterface game) {
         this.game = game;
         setUpPane();
@@ -39,70 +33,65 @@ public class GameBoardPane {
     }
 
     private void setUpPane() {
-        gameOverLabel.setMinSize(500.0, 500.0);
-        gameOverLabel.setAlignment(Pos.CENTER);
-        gameOverLabel.setFont(new Font(100));
-        gameOverLabel.setLayoutX(0.0);
-        gameOverLabel.setLayoutY(100.0);
-        gameOverLabel.setText("");
-        gameOverLabel.setVisible(false);
-
-        Button[] tableButtonArray = {tableButton1, tableButton2, tableButton3, tableButton4, tableButton5,
-                tableButton6, tableButton7, tableButton8, tableButton9, tableButton10,
-                tableButton11, tableButton12, tableButton13, tableButton14, tableButton15,
-                tableButton16, tableButton17, tableButton18, tableButton19, tableButton20,
-                tableButton21, tableButton22, tableButton23, tableButton24, tableButton25};
+        setLabel(gameOverLabel, Pos.CENTER, 500.0, 520.0, 0.0, 90.0, 12.0, false, "");
 
         this.pane = new Pane();
 
         Label headerLabel = new Label();
-        headerLabel.setFont(new Font(24));
-        headerLabel.setLayoutX(98.0);
-        headerLabel.setLayoutY(15.0);
-        headerLabel.setText("Current Term: ");
+        setLabel(headerLabel, null, null, null, 98.0, 15.0, 24.0, null, "Current Term: ");
 
         currentTermLabel = new Label();
-        currentTermLabel.setFont(new Font(24));
-        currentTermLabel.setLayoutY(15.0);
-        currentTermLabel.setLayoutX(250.0);
-        currentTermLabel.setText("X");
+        setLabel(currentTermLabel, null, null, null, 250.0, 15.0, 24.0, null, "X");
 
         pane.getChildren().addAll(headerLabel, currentTermLabel);
 
-        for(int i = 0; i < tableButtonArray.length; i += 1) {
+        for(int i = 0; i < 25; i += 1) {
             Label tableLabel = new Label();
-            tableLabel.setMinSize(100.0, 100.0);
-            tableLabel.setLayoutX((i / 5) * 100.0);
-            tableLabel.setLayoutY((i % 5) * 100.0 + 100.0);
-            tableLabel.setAlignment(Pos.CENTER);
-            tableLabel.setFont(new Font(72));
-            tableLabel.setText("");
-            tableLabel.setVisible(false);
-            tableButtonArray[i] = new Button();
-            tableButtonArray[i].setMinSize(100.0, 100.0);
-            tableButtonArray[i].setLayoutX((i / 5) * 100.0);
-            tableButtonArray[i].setLayoutY((i % 5) * 100.0 + 100.0);
-            tableButtonArray[i].setText("");
+            setLabel(tableLabel, Pos.CENTER, 100.0, 100.0, (i / 5) * 100.0, (i % 5) * 100.0 + 100.0, 72.0, false, "");
+            Button tableButton = new Button();
+            tableButton.setMinSize(100.0, 100.0);
+            setWidgetPosition(tableButton, (i / 5) * 100.0, (i % 5) * 100.0 + 100.0);
+            tableButton.setText("");
             Integer[] tableIndex = {i % 5, i / 5};
-            tableButtonMap.put(tableButtonArray[i], tableIndex);
-            labelToButtonMap.put(tableButtonArray[i], tableLabel);
-            pane.getChildren().addAll(tableButtonArray[i], tableLabel);
-            tableButtonArray[i].setOnAction(new TableButtonHandler());
+            tableButtonMap.put(tableButton, tableIndex);
+            labelToButtonMap.put(tableButton, tableLabel);
+            pane.getChildren().addAll(tableButton, tableLabel);
+            tableButton.setOnAction(new TableButtonHandler());
         }
 
         Button quitButton = new Button();
         quitButton.setText("QUIT");
-        quitButton.setLayoutX(100.0);
-        quitButton.setLayoutY(635.0);
+        setWidgetPosition(quitButton, 100.0, 635.0);
         quitButton.setOnAction(new QuitButtonHandler());
 
         Button restartButton = new Button();
         restartButton.setText("RESTART");
-        restartButton.setLayoutX(350.0);
-        restartButton.setLayoutY(635.0);
+        setWidgetPosition(restartButton, 350.0, 635.0);
         restartButton.setOnAction(new RestartButtonHandler());
 
         pane.getChildren().addAll(quitButton, restartButton, gameOverLabel);
+    }
+
+    private void setLabel(Label label, Pos pos, Double width, Double height, Double xLayout, Double yLayout, Double fontSize, Boolean visible, String text) {
+        if(width != null && height != null) {
+            label.setMinSize(width, height);
+        }
+        label.setText(text);
+        setWidgetPosition(label, xLayout, yLayout);
+        if(pos != null) {
+            label.setAlignment(pos);
+        }
+        if(fontSize != null) {
+            label.setFont(new Font(fontSize));
+        }
+        if(visible != null) {
+            label.setVisible(visible);
+        }
+    }
+
+    private void setWidgetPosition(Control widget, double xLayout, double yLayout) {
+        widget.setLayoutX(xLayout);
+        widget.setLayoutY(yLayout);
     }
 
     class TableButtonHandler implements EventHandler<ActionEvent> {
