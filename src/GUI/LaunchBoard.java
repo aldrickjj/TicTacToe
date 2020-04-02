@@ -30,6 +30,7 @@ public class LaunchBoard extends Application {
     GameInterface game = new HumanGameInterface();
 
     Label gameOverLabel = new Label();
+    Label currentTermLabel;
 
     Button tableButton1, tableButton2, tableButton3, tableButton4, tableButton5,
             tableButton6, tableButton7, tableButton8, tableButton9, tableButton10,
@@ -63,7 +64,7 @@ public class LaunchBoard extends Application {
         headerLabel.setLayoutY(15.0);
         headerLabel.setText("Current Term: ");
 
-        Label currentTermLabel = new Label();
+        currentTermLabel = new Label();
         currentTermLabel.setFont(new Font(24));
         currentTermLabel.setLayoutY(15.0);
         currentTermLabel.setLayoutX(250.0);
@@ -137,6 +138,7 @@ public class LaunchBoard extends Application {
                 System.exit(0);
             }
             String symbol = game.getCurrentSymbol();
+            currentTermLable
             Label label = labelToButtonMap.get(button);
             Integer[] tableIndex = tableButtonMap.get(button);
             if(button == null) {
