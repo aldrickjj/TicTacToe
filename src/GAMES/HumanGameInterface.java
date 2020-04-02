@@ -61,7 +61,7 @@ public class HumanGameInterface implements GameInterface {
         this.moveNumber += 1;
         if(isGameOver()) {
             this.winner = this.term;
-            System.out.println("game over");
+            return true;
         }
         changeTerm();
         System.out.println(this.moveNumber);
