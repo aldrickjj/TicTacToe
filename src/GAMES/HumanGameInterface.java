@@ -61,6 +61,11 @@ public class HumanGameInterface implements GameInterface {
     }
 
     @Override
+    public String getCurrentSymbol() {
+        return term.getSymbol();
+    }
+
+    @Override
     public boolean isGameOver() {
         String symbol = this.term.getSymbol();
         for(int i = 0; i < board.length; i += 1) {

@@ -2,6 +2,7 @@ package GUI;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import java.util.*;
 import GAMES.*;
+
+import javax.swing.*;
 
 public class GameBoard extends Application{
 
@@ -49,26 +52,38 @@ public class GameBoard extends Application{
             tableLabel16, tableLabel17, tableLabel18, tableLabel19, tableLabel20,
             tableLabel21, tableLabel22, tableLabel23, tableLabel24, tableLabel25};
 
+    HashMap<Button, Integer[]> tableButtonMap = new HashMap<>();
+    HashMap<Button, Label> labelToButtonMap = new HashMap<>();
+
+    GameInterface game = new HumanGameInterface();
+
     @Override
     public void start(Stage stage) throws Exception{
-        HashMap<Button, Integer[]> tableButtonMap = new HashMap<>();
-        HashMap<Button, Label> labelToButtonMap = new HashMap<>();
+
+        Parent root = FXMLLoader.load(getClass().getResource("GameBoard.fxml"));
+        stage.setScene(new Scene(root));
+        stage.setTitle("Tic Tac Toe!");
+
         for(int i = 0; i < 25; i += 1) {
             Integer[] tableIndex = {i % 5, i / 5};
             tableButtonMap.put(tableButtonArray[i], tableIndex);
             labelToButtonMap.put(tableButtonArray[i], tableLabelArray[i]);
         }
 
-        GameInterface game = new HumanGameInterface();
-
-        Parent root = FXMLLoader.load(getClass().getResource("GameBoard.fxml"));
-        stage.setScene(new Scene(root));
-        stage.setTitle("Tic Tac Toe!");
-
-        while(! game.isGameOver()) {
-
-        }
-
         stage.show();
     }
+
+    class TableButtonHandler implements EventHandler<ActionEvent> {
+
+        @Override
+        public void handle(ActionEvent e) {
+            try {
+                Button button = (Button) e.getSource();
+            } catch (Exception error) {
+                System.exit(0);
+            }
+            
+        }
+    }
+
 }

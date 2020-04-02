@@ -6,6 +6,7 @@ public interface GameInterface {
     public Player[] getPlayers();
     public String[][] getBoard();
     public Player getWinner();
+    public String getCurrentSymbol();
     public boolean isGameOver();
     public void clearBoard();
     public void startGame();
