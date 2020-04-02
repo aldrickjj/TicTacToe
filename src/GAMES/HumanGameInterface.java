@@ -7,6 +7,7 @@ public class HumanGameInterface implements GameInterface {
     private Player winner = null;
     private int moveNumber = 0;
     private boolean gameOver;
+    private boolean gameStarted;
 
     public HumanGameInterface() {
         this.player1 = createPlayer("Player 1", "X");
@@ -81,6 +82,11 @@ public class HumanGameInterface implements GameInterface {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean gameStarted() {
+        return this.gameStarted;
     }
 
     private boolean checkHorizontal(String symbol, int index) {

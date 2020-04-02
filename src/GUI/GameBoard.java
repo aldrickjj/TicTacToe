@@ -62,6 +62,9 @@ public class GameBoard{
         if(! setUp) {
             identifyButtonAndLabel();
         }
+        if(! game.gameStarted()) {
+            game.startGame();
+        }
         Button button = null;
         try {
             button = (Button) e.getSource();

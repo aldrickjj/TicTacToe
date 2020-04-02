@@ -7,6 +7,7 @@ public class ComputerGameInterface implements GameInterface {
     private Player winner = null;
     private int moveNumber = 0;
     private boolean gameOver;
+    private boolean gameStarted;
 
     public ComputerGameInterface(int boardDimension) {
         this.player = createPlayer("Player", "X");
@@ -80,6 +81,11 @@ public class ComputerGameInterface implements GameInterface {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean gameStarted() {
+        return this.gameStarted;
     }
 
     private boolean checkHorizontal(String symbol, int index) {
