@@ -10,9 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
-import javax.swing.text.html.ImageView;
-import java.awt.*;
+import java.util.*;
 
 public class GameBoard extends Application{
 
@@ -27,6 +25,8 @@ public class GameBoard extends Application{
             tableButton11, tableButton12, tableButton13, tableButton14, tableButton15,
             tableButton16, tableButton17, tableButton18, tableButton19, tableButton20,
             tableButton21, tableButton22, tableButton23, tableButton24, tableButton25;
+
+    HashMap<Button, Integer[]> tableButtons = new HashMap<>();
 
     @FXML
     Button quitButton, restartButton;

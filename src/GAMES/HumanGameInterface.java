@@ -55,6 +55,8 @@ public class HumanGameInterface implements GameInterface {
             return false;
         }
         this.board[y][x] = symbol;
+        moveNumber += 1;
+        changeTerm();
         return true;
     }
 
@@ -146,17 +148,6 @@ public class HumanGameInterface implements GameInterface {
     public void startGame() {
         this.term = player1;
         clearBoard();
-        while (!gameOver) {
-            changeTerm();
-            moveNumber += 1;
-            int x = 0;//to be changed
-            int y = 0;//to be changed
-            while(!makeTerm(x, y)) {
-                //Do something here
-            }
-            gameOver = isGameOver();
-        }
-        winner = this.winner;
     }
 
     @Override
