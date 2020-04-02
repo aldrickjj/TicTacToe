@@ -53,7 +53,7 @@ public class HumanGameInterface implements GameInterface {
     @Override
     public boolean makeTerm(int x, int y) {
         String symbol = this.term.getSymbol();
-        if(isMoveLegal(x, y)){
+        if(! isMoveLegal(x, y)){
             System.out.println("illegal");
             return false;
         }
