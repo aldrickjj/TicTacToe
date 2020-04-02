@@ -71,6 +71,9 @@ public class GameBoard extends Application{
         }
 
         for(int i = 0; i < tableButtonArray.length; i += 1) {
+            if(tableButtonArray[i] == null) {
+                System.exit(0);
+            }
             tableButtonArray[i].setOnAction(new TableButtonHandler());
         }
 
