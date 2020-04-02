@@ -7,6 +7,7 @@ public class ComputerGameInterface implements GameInterface {
     private Player winner = null;
     private int moveNumber = 0;
     private boolean gameOver;
+    private boolean gameStarted;
 
     public ComputerGameInterface(int boardDimension) {
         this.player = createPlayer("Player", "X");
@@ -20,17 +21,6 @@ public class ComputerGameInterface implements GameInterface {
     }
 
     @Override
-    public Player[] getPlayers() {
-        Player[] playerList = {player, pc};
-        return playerList;
-    }
-
-    @Override
-    public String[][] getBoard() {
-        return this.board;
-    }
-
-    @Override
     public void clearBoard() {
         for(int i = 0; i < board.length; i += 1) {
             for(int j = 0; j < board[j].length; j += 1) {
@@ -39,20 +29,37 @@ public class ComputerGameInterface implements GameInterface {
         }
     }
 
+    @Override
+    public Player getCurrentPlayer() {
+        return this.term;
+    }
+
     private boolean isMoveLegal(int x, int y) {
         return this.board[y][x].equals(" ");
     }
 
+    @Override
     public boolean makeTerm(int x, int y) {
         String symbol = this.term.getSymbol();
         if(isMoveLegal(x, y)){
             return false;
         }
         this.board[y][x] = symbol;
+        moveNumber += 1;
+        if(isGameOver()) {
+            this.winner = this.term;
+        }
+        changeTerm();
         return true;
     }
 
-    private boolean isGameOver() {
+    @Override
+    public String getCurrentSymbol() {
+        return term.getSymbol();
+    }
+
+    @Override
+    public boolean isGameOver() {
         String symbol = this.term.getSymbol();
         for(int i = 0; i < board.length; i += 1) {
             if(checkHorizontal(symbol, i) || checkVertical(symbol, i)) {
@@ -63,6 +70,11 @@ public class ComputerGameInterface implements GameInterface {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean gameStarted() {
+        return this.gameStarted;
     }
 
     private boolean checkHorizontal(String symbol, int index) {

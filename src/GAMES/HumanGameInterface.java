@@ -7,6 +7,7 @@ public class HumanGameInterface implements GameInterface {
     private Player winner = null;
     private int moveNumber = 0;
     private boolean gameOver;
+    private boolean gameStarted;
 
     public HumanGameInterface() {
         this.player1 = createPlayer("Player 1", "X");
@@ -21,39 +22,50 @@ public class HumanGameInterface implements GameInterface {
     }
 
     @Override
-    public Player[] getPlayers() {
-        Player[] playerList = {player1, player2};
-        return playerList;
-    }
-
-    @Override
-    public String[][] getBoard() {
-        return this.board;
-    }
-
-    @Override
     public void clearBoard() {
         for(int i = 0; i < board.length; i += 1) {
-            for(int j = 0; j < board[j].length; j += 1) {
+            for(int j = 0; j < board[i].length; j += 1) {
                 board[i][j] = " ";
             }
         }
+    }
+
+    @Override
+    public Player getCurrentPlayer() {
+        return this.term;
     }
 
     private boolean isMoveLegal(int x, int y) {
         return this.board[y][x].equals(" ");
     }
 
+    @Override
     public boolean makeTerm(int x, int y) {
         String symbol = this.term.getSymbol();
-        if(isMoveLegal(x, y)){
+        if(! isMoveLegal(x, y)){
             return false;
         }
         this.board[y][x] = symbol;
+        this.moveNumber += 1;
+        if(isGameOver()) {
+            if(moveNumber != 25)
+                this.winner = this.term;
+            return true;
+        }
+        changeTerm();
         return true;
     }
 
-    private boolean isGameOver() {
+    @Override
+    public String getCurrentSymbol() {
+        return term.getSymbol();
+    }
+
+    @Override
+    public boolean isGameOver() {
+        if(moveNumber == 25) {
+            return true;
+        }
         String symbol = this.term.getSymbol();
         for(int i = 0; i < board.length; i += 1) {
             if(checkHorizontal(symbol, i) || checkVertical(symbol, i)) {
@@ -64,6 +76,11 @@ public class HumanGameInterface implements GameInterface {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean gameStarted() {
+        return this.gameStarted;
     }
 
     private boolean checkHorizontal(String symbol, int index) {
@@ -139,19 +156,10 @@ public class HumanGameInterface implements GameInterface {
 
     @Override
     public void startGame() {
+        this.moveNumber = 0;
+        this.gameStarted = true;
         this.term = player1;
         clearBoard();
-        while (!gameOver) {
-            changeTerm();
-            moveNumber += 1;
-            int x = 0;//to be changed
-            int y = 0;//to be changed
-            while(!makeTerm(x, y)) {
-                //Do something here
-            }
-            gameOver = isGameOver();
-        }
-        winner = this.winner;
     }
 
     @Override
