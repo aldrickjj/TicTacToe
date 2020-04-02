@@ -22,17 +22,6 @@ public class HumanGameInterface implements GameInterface {
     }
 
     @Override
-    public Player[] getPlayers() {
-        Player[] playerList = {player1, player2};
-        return playerList;
-    }
-
-    @Override
-    public String[][] getBoard() {
-        return this.board;
-    }
-
-    @Override
     public void clearBoard() {
         for(int i = 0; i < board.length; i += 1) {
             for(int j = 0; j < board[i].length; j += 1) {
