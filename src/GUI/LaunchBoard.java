@@ -146,6 +146,7 @@ public class LaunchBoard extends Application {
                 if(game.isGameOver()) {
                     Player winner = game.getWinner();
                     if(winner != null) {
+                        symbol = winner.getSymbol();
                         currentTermLabel.setText(symbol + " Won!");
                     }
                     else {
