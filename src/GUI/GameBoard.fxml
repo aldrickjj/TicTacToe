@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GameBoard">
+<Pane fx:id="parentPane" prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GameBoard">
    <children>
-     <Pane prefHeight="100.0" prefWidth="500.0" />
-      <ImageView fitHeight="500.0" fitWidth="500.0" layoutX="0.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Table.jpg" />
-         </image></ImageView>
-     <Pane prefHeight="100.0" prefWidth="500.0">
+     <Pane fx:id="headerPane" prefHeight="100.0" prefWidth="500.0" />
+     <Pane fx:id="footerPane" layoutX="0.0" layoutY="600.0" prefHeight="100.0" prefWidth="500.0">
          <children>
             <Button layoutX="100.0" layoutY="35.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="300.0" layoutY="35.0" mnemonicParsing="false" text="Button" />
+            <Button layoutX="350.0" layoutY="35.0" mnemonicParsing="false" text="Button" />
          </children></Pane>
+      <Line endX="500.0" layoutX="0.0" layoutY="100.0" startX="0.0" />
+      <Line endX="0.0" endY="500.0" layoutX="0.0" layoutY="100.0" startX="-0.5000152587890625" startY="0.0" />
+      <Line endX="500.0" layoutX="0.0" layoutY="600.0" startX="0.0" />
+      <Line endX="0.0" endY="500.0" layoutX="500.0" layoutY="100.0" startX="-0.5000152587890625" startY="0.0" />
+     <Line endX="500.0" layoutX="0.0" layoutY="200.0" startX="0.0" />
+     <Line endX="0.0" endY="500.0" layoutX="100.0" layoutY="100.0" startX="-0.5000152587890625" startY="0.0" />
+     <Line endX="500.0" layoutX="0.0" layoutY="300.0" startX="0.0" />
+     <Line endX="0.0" endY="500.0" layoutX="200.0" layoutY="100.0" startX="-0.5000152587890625" startY="0.0" />
+     <Line endX="500.0" layoutX="0.0" layoutY="400.0" startX="0.0" />
+     <Line endX="0.0" endY="500.0" layoutX="300.0" layoutY="100.0" startX="-0.5000152587890625" startY="0.0" />
+     <Line endX="500.0" layoutX="0.0" layoutY="500.0" startX="0.0" />
+     <Line endX="0.0" endY="500.0" layoutX="400.0" layoutY="100.0" startX="-0.5000152587890625" startY="0.0" />
 
    </children>
-</FlowPane>
+</Pane>
