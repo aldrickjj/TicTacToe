@@ -5,22 +5,15 @@ import GAMES.HumanGameInterface;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.shape.*;
 
-import javax.sound.sampled.Control;
-import javax.sound.sampled.LineListener;
-import javax.sound.sampled.LineUnavailableException;
 import java.io.IOException;
 import java.util.*;
 
