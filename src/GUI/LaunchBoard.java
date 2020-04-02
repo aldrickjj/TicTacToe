@@ -138,7 +138,6 @@ public class LaunchBoard extends Application {
                 System.exit(0);
             }
             String symbol = game.getCurrentSymbol();
-            currentTermLable
             Label label = labelToButtonMap.get(button);
             Integer[] tableIndex = tableButtonMap.get(button);
             if(button == null) {
@@ -151,7 +150,10 @@ public class LaunchBoard extends Application {
                     System.out.println("exit");
                     gameOverLabel.setText(symbol + " Won!");
                     gameOverLabel.setVisible(true);
+                    return;
                 }
+                symbol = game.getCurrentSymbol();
+                currentTermLabel.setText(symbol.toUpperCase());
             }
         }
     }
