@@ -64,10 +64,14 @@ public class GameBoard extends Application{
         stage.setScene(new Scene(root));
         stage.setTitle("Tic Tac Toe!");
 
-        for(int i = 0; i < 25; i += 1) {
+        for(int i = 0; i < tableButtonArray.length; i += 1) {
             Integer[] tableIndex = {i % 5, i / 5};
             tableButtonMap.put(tableButtonArray[i], tableIndex);
             labelToButtonMap.put(tableButtonArray[i], tableLabelArray[i]);
+        }
+
+        for(int i = 0; i < tableButtonArray.length; i += 1) {
+            tableButtonArray[i].setOnAction(new TableButtonHandler());
         }
 
         stage.show();
@@ -87,7 +91,11 @@ public class GameBoard extends Application{
             Label label = labelToButtonMap.get(button);
             Integer[] tableIndex = tableButtonMap.get(button);
             if(game.makeTerm(tableIndex[0], tableIndex[2])) {
+                label.setText(symbol);
+            }
 
+            if(game.isGameOver()) {
+                System.exit(0);
             }
         }
     }

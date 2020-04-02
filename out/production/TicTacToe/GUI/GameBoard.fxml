@@ -20,8 +20,8 @@
          </children></Pane>
      <Pane fx:id="footerPane" layoutX="0.0" layoutY="600.0" prefHeight="100.0" prefWidth="500.0">
          <children>
-            <Button layoutX="100.0" layoutY="35.0" mnemonicParsing="false" text="QUIT" />
-            <Button layoutX="350.0" layoutY="35.0" mnemonicParsing="false" text="RESTART" />
+            <Button fx:id="quitButton" layoutX="100.0" layoutY="35.0" mnemonicParsing="false" text="QUIT" />
+            <Button fx:id="restartButton" layoutX="350.0" layoutY="35.0" mnemonicParsing="false" text="RESTART" />
          </children></Pane>
       <Line endX="500.0" layoutX="0.0" layoutY="100.0" startX="0.0" />
       <Line endX="0.0" endY="500.0" layoutX="0.0" layoutY="100.0" startX="-0.5000152587890625" startY="0.0" />
@@ -60,6 +60,131 @@
      <Button fx:id="tableButton23" layoutX="200.0" layoutY="500.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
      <Button fx:id="tableButton24" layoutX="300.0" layoutY="500.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
      <Button fx:id="tableButton25" layoutX="400.0" layoutY="500.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+      <Label fx:id="tableLabel1" layoutX="22.0" layoutY="98.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+         <font>
+            <Font size="72.0" />
+         </font>
+      </Label>
+     <Label fx:id="tableLabel2" layoutX="122.0" layoutY="98.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel3" layoutX="222.0" layoutY="98.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel4" layoutX="322.0" layoutY="98.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel5" layoutX="422.0" layoutY="98.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel6" layoutX="22.0" layoutY="198.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel7" layoutX="122.0" layoutY="198.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel8" layoutX="222.0" layoutY="198.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel9" layoutX="322.0" layoutY="198.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel10" layoutX="422.0" layoutY="198.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel11" layoutX="22.0" layoutY="298.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel12" layoutX="122.0" layoutY="298.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel13" layoutX="222.0" layoutY="298.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel14" layoutX="322.0" layoutY="298.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel15" layoutX="422.0" layoutY="298.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel16" layoutX="22.0" layoutY="398.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel17" layoutX="122.0" layoutY="398.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel18" layoutX="222.0" layoutY="398.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel19" layoutX="322.0" layoutY="398.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel20" layoutX="422.0" layoutY="398.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel21" layoutX="22.0" layoutY="498.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel22" layoutX="122.0" layoutY="498.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel23" layoutX="222.0" layoutY="498.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel24" layoutX="322.0" layoutY="498.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
+     <Label fx:id="tableLabel25" layoutX="422.0" layoutY="498.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
+       <font>
+         <Font size="72.0" />
+       </font>
+     </Label>
 
    </children>
 </Pane>

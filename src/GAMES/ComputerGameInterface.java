@@ -48,16 +48,28 @@ public class ComputerGameInterface implements GameInterface {
         return this.board[y][x].equals(" ");
     }
 
+    @Override
     public boolean makeTerm(int x, int y) {
         String symbol = this.term.getSymbol();
         if(isMoveLegal(x, y)){
             return false;
         }
         this.board[y][x] = symbol;
+        moveNumber += 1;
+        if(isGameOver()) {
+            this.winner = this.term;
+        }
+        changeTerm();
         return true;
     }
 
-    private boolean isGameOver() {
+    @Override
+    public String getCurrentSymbol() {
+        return term.getSymbol();
+    }
+
+    @Override
+    public boolean isGameOver() {
         String symbol = this.term.getSymbol();
         for(int i = 0; i < board.length; i += 1) {
             if(checkHorizontal(symbol, i) || checkVertical(symbol, i)) {
