@@ -60,7 +60,8 @@ public class HumanGameInterface implements GameInterface {
         return true;
     }
 
-    private boolean isGameOver() {
+    @Override
+    public boolean isGameOver() {
         String symbol = this.term.getSymbol();
         for(int i = 0; i < board.length; i += 1) {
             if(checkHorizontal(symbol, i) || checkVertical(symbol, i)) {
