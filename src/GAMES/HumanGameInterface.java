@@ -64,6 +64,9 @@ public class HumanGameInterface implements GameInterface {
 
     @Override
     public boolean isGameOver() {
+        if(moveNumber == 25) {
+            return true;
+        }
         String symbol = this.term.getSymbol();
         for(int i = 0; i < board.length; i += 1) {
             if(checkHorizontal(symbol, i) || checkVertical(symbol, i)) {
