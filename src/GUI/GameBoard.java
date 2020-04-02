@@ -53,6 +53,7 @@ public class GameBoard{
             Integer[] tableIndex = {i % 5, i / 5};
             tableButtonMap.put(tableButtonArray[i], tableIndex);
             labelToButtonMap.put(tableButtonArray[i], tableLabelArray[i]);
+            tableLabelArray[i].setVisible(false);
         }
         setUp = true;
     }
