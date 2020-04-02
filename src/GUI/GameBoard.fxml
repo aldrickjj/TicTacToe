@@ -3,14 +3,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
 <Pane fx:id="parentPane" prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GameBoard">
    <children>
-     <Pane fx:id="headerPane" prefHeight="100.0" prefWidth="500.0" />
+     <Pane fx:id="headerPane" prefHeight="100.0" prefWidth="500.0">
+         <children>
+            <Label layoutX="98.0" layoutY="15.0" text="Current Term: ">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+            <Label fx:id="termLabel" layoutX="250.0" layoutY="15.0" text="Label">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+         </children></Pane>
      <Pane fx:id="footerPane" layoutX="0.0" layoutY="600.0" prefHeight="100.0" prefWidth="500.0">
          <children>
-            <Button layoutX="100.0" layoutY="35.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="350.0" layoutY="35.0" mnemonicParsing="false" text="Button" />
+            <Button layoutX="100.0" layoutY="35.0" mnemonicParsing="false" text="QUIT" />
+            <Button layoutX="350.0" layoutY="35.0" mnemonicParsing="false" text="RESTART" />
          </children></Pane>
       <Line endX="500.0" layoutX="0.0" layoutY="100.0" startX="0.0" />
       <Line endX="0.0" endY="500.0" layoutX="0.0" layoutY="100.0" startX="-0.5000152587890625" startY="0.0" />

@@ -18,6 +18,9 @@ public class GameBoard extends Application{
 
     public static void main(String[] args) {launch(args);}
 
+    @FXML
+    Label termLabel;
+
     @Override
     public void start(Stage stage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("GameBoard.fxml"));
