@@ -43,17 +43,16 @@ public class HumanGameInterface implements GameInterface {
     public boolean makeTerm(int x, int y) {
         String symbol = this.term.getSymbol();
         if(! isMoveLegal(x, y)){
-            System.out.println("illegal");
             return false;
         }
         this.board[y][x] = symbol;
         this.moveNumber += 1;
         if(isGameOver()) {
-            this.winner = this.term;
+            if(moveNumber != 25)
+                this.winner = this.term;
             return true;
         }
         changeTerm();
-        System.out.println(this.moveNumber);
         return true;
     }
 
@@ -157,6 +156,7 @@ public class HumanGameInterface implements GameInterface {
 
     @Override
     public void startGame() {
+        this.moveNumber = 0;
         this.gameStarted = true;
         this.term = player1;
         clearBoard();

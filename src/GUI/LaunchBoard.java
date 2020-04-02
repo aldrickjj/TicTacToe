@@ -2,6 +2,7 @@ package GUI;
 
 import GAMES.GameInterface;
 import GAMES.HumanGameInterface;
+import GAMES.Player;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -142,8 +143,13 @@ public class LaunchBoard extends Application {
                 label.setText(symbol);
                 label.setVisible(true);
                 if(game.isGameOver()) {
-                    System.out.println("exit");
-                    gameOverLabel.setText(symbol + " Won!");
+                    Player winner = game.getWinner();
+                    if(winner != null) {
+                        gameOverLabel.setText(symbol + " Won!");
+                    }
+                    else {
+                        gameOverLabel.setText("Tied!");
+                    }
                     gameOverLabel.setVisible(true);
                     return;
                 }
