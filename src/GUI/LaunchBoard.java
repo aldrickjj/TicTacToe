@@ -104,6 +104,7 @@ public class LaunchBoard extends Application {
         quitButton.setText("QUIT");
         quitButton.setLayoutX(100.0);
         quitButton.setLayoutY(635.0);
+        quitButton.setOnAction(new QuitButtonHandler());
 
         Button restartButton = new Button();
         restartButton.setText("RESTART");
@@ -148,6 +149,14 @@ public class LaunchBoard extends Application {
                 symbol = game.getCurrentSymbol();
                 currentTermLabel.setText(symbol.toUpperCase());
             }
+        }
+    }
+
+    class QuitButtonHandler implements EventHandler<ActionEvent> {
+
+        @Override
+        public void handle(ActionEvent e) {
+            System.exit(0);
         }
     }
 }
