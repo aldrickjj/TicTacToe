@@ -67,6 +67,7 @@ public class LaunchBoard extends Application {
         currentTermLabel.setFont(new Font(24));
         currentTermLabel.setLayoutY(15.0);
         currentTermLabel.setLayoutX(250.0);
+        currentTermLabel.setText("X");
 
         pane.getChildren().addAll(headerLabel, currentTermLabel);
 
