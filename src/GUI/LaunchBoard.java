@@ -110,6 +110,7 @@ public class LaunchBoard extends Application {
         restartButton.setText("RESTART");
         restartButton.setLayoutX(350.0);
         restartButton.setLayoutY(635.0);
+        restartButton.setOnAction(new RestartButtonHandler());
 
         pane.getChildren().addAll(quitButton, restartButton, gameOverLabel);
 
@@ -157,6 +158,21 @@ public class LaunchBoard extends Application {
         @Override
         public void handle(ActionEvent e) {
             System.exit(0);
+        }
+    }
+
+    class RestartButtonHandler implements EventHandler<ActionEvent> {
+
+        @Override
+        public void handle(ActionEvent e) {
+            game.startGame();
+            currentTermLabel.setText("X");
+            List<Button> buttonList = new Vector<>(tableButtonMap.keySet());
+            for(Button button : buttonList) {
+                Label label = labelToButtonMap.get(button);
+                label.setText("");
+                label.setVisible(false);
+            }
         }
     }
 }
