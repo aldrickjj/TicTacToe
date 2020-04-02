@@ -35,31 +35,31 @@
      <Line endX="0.0" endY="500.0" layoutX="300.0" layoutY="100.0" startX="-0.5000152587890625" startY="0.0" />
      <Line endX="500.0" layoutX="0.0" layoutY="500.0" startX="0.0" />
      <Line endX="0.0" endY="500.0" layoutX="400.0" layoutY="100.0" startX="-0.5000152587890625" startY="0.0" />
-      <Button fx:id="tableButton1" layoutX="0.0" layoutY="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton2" layoutX="100.0" layoutY="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton3" layoutX="200.0" layoutY="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton4" layoutX="300.0" layoutY="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton5" layoutX="400.0" layoutY="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton6" layoutX="0.0" layoutY="200.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton7" layoutX="100.0" layoutY="200.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton8" layoutX="200.0" layoutY="200.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton9" layoutX="300.0" layoutY="200.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton10" layoutX="400.0" layoutY="200.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton11" layoutX="0.0" layoutY="300.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton12" layoutX="100.0" layoutY="300.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton13" layoutX="200.0" layoutY="300.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton14" layoutX="300.0" layoutY="300.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton15" layoutX="400.0" layoutY="300.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton16" layoutX="0.0" layoutY="400.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton17" layoutX="100.0" layoutY="400.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton18" layoutX="200.0" layoutY="400.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton19" layoutX="300.0" layoutY="400.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton20" layoutX="400.0" layoutY="400.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton21" layoutX="0.0" layoutY="500.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton22" layoutX="100.0" layoutY="500.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton23" layoutX="200.0" layoutY="500.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton24" layoutX="300.0" layoutY="500.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
-     <Button fx:id="tableButton25" layoutX="400.0" layoutY="500.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+      <Button fx:id="tableButton1" onAction="#tableButtonHandler" layoutX="0.0" layoutY="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton2" onAction="#tableButtonHandler" layoutX="100.0" layoutY="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton3" onAction="#tableButtonHandler" layoutX="200.0" layoutY="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton4" onAction="#tableButtonHandler" layoutX="300.0" layoutY="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton5" onAction="#tableButtonHandler" layoutX="400.0" layoutY="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton6" onAction="#tableButtonHandler" layoutX="0.0" layoutY="200.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton7" onAction="#tableButtonHandler" layoutX="100.0" layoutY="200.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton8" onAction="#tableButtonHandler" layoutX="200.0" layoutY="200.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton9" onAction="#tableButtonHandler" layoutX="300.0" layoutY="200.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton10" onAction="#tableButtonHandler" layoutX="400.0" layoutY="200.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton11" onAction="#tableButtonHandler" layoutX="0.0" layoutY="300.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton12" onAction="#tableButtonHandler" layoutX="100.0" layoutY="300.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton13" onAction="#tableButtonHandler" layoutX="200.0" layoutY="300.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton14" onAction="#tableButtonHandler" layoutX="300.0" layoutY="300.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton15" onAction="#tableButtonHandler" layoutX="400.0" layoutY="300.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton16" onAction="#tableButtonHandler" layoutX="0.0" layoutY="400.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton17" onAction="#tableButtonHandler" layoutX="100.0" layoutY="400.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton18" onAction="#tableButtonHandler" layoutX="200.0" layoutY="400.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton19" onAction="#tableButtonHandler" layoutX="300.0" layoutY="400.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton20" onAction="#tableButtonHandler" layoutX="400.0" layoutY="400.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton21" onAction="#tableButtonHandler" layoutX="0.0" layoutY="500.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton22" onAction="#tableButtonHandler" layoutX="100.0" layoutY="500.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton23" onAction="#tableButtonHandler" layoutX="200.0" layoutY="500.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton24" onAction="#tableButtonHandler" layoutX="300.0" layoutY="500.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+     <Button fx:id="tableButton25" onAction="#tableButtonHandler" layoutX="400.0" layoutY="500.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
       <Label fx:id="tableLabel1" layoutX="22.0" layoutY="98.0" prefHeight="105.0" prefWidth="56.0" textAlignment="CENTER">
          <font>
             <Font size="72.0" />

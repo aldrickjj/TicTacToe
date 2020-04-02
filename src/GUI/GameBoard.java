@@ -14,11 +14,9 @@ import javafx.stage.Stage;
 import java.util.*;
 import GAMES.*;
 
-import javax.swing.*;
+public class GameBoard{
 
-public class GameBoard extends Application{
-
-    public static void main(String[] args) {launch(args);}
+    boolean setUp = false;
 
     @FXML
     Label termLabel;
@@ -57,49 +55,35 @@ public class GameBoard extends Application{
 
     GameInterface game = new HumanGameInterface();
 
-    @Override
-    public void start(Stage stage) throws Exception{
-
-        Parent root = FXMLLoader.load(getClass().getResource("GameBoard.fxml"));
-        stage.setScene(new Scene(root));
-        stage.setTitle("Tic Tac Toe!");
-
+    private void identifyButtonAndLabel() {
         for(int i = 0; i < tableButtonArray.length; i += 1) {
             Integer[] tableIndex = {i % 5, i / 5};
             tableButtonMap.put(tableButtonArray[i], tableIndex);
             labelToButtonMap.put(tableButtonArray[i], tableLabelArray[i]);
         }
-
-        for(int i = 0; i < tableButtonArray.length; i += 1) {
-            if(tableButtonArray[i] == null) {
-                System.exit(0);
-            }
-            tableButtonArray[i].setOnAction(new TableButtonHandler());
-        }
-
-        stage.show();
+        setUp = true;
     }
 
-    class TableButtonHandler implements EventHandler<ActionEvent> {
+    @FXML
+    protected void tableButtonHandler(ActionEvent e) {
+        if(! setUp) {
+            identifyButtonAndLabel();
+        }
+        Button button = null;
+        try {
+            button = (Button) e.getSource();
+        } catch (Exception error) {
+            System.exit(0);
+        }
+        String symbol = game.getCurrentSymbol();
+        Label label = labelToButtonMap.get(button);
+        Integer[] tableIndex = tableButtonMap.get(button);
+        if(game.makeTerm(tableIndex[0], tableIndex[2])) {
+            label.setText(symbol);
+        }
 
-        @Override
-        public void handle(ActionEvent e) {
-            Button button = null;
-            try {
-                button = (Button) e.getSource();
-            } catch (Exception error) {
-                System.exit(0);
-            }
-            String symbol = game.getCurrentSymbol();
-            Label label = labelToButtonMap.get(button);
-            Integer[] tableIndex = tableButtonMap.get(button);
-            if(game.makeTerm(tableIndex[0], tableIndex[2])) {
-                label.setText(symbol);
-            }
-
-            if(game.isGameOver()) {
-                System.exit(0);
-            }
+        if(game.isGameOver()) {
+            System.exit(0);
         }
     }
 
