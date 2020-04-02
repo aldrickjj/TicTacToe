@@ -53,7 +53,9 @@ public class GameBoard{
             Integer[] tableIndex = {i % 5, i / 5};
             tableButtonMap.put(tableButtonArray[i], tableIndex);
             labelToButtonMap.put(tableButtonArray[i], tableLabelArray[i]);
-            tableLabelArray[i].setVisible(false);
+            if(labelToButtonMap.get(tableButtonArray[i]) == null) {
+                System.out.println("NULL");
+            }
         }
         setUp = true;
     }
@@ -75,8 +77,12 @@ public class GameBoard{
         String symbol = game.getCurrentSymbol();
         Label label = labelToButtonMap.get(button);
         Integer[] tableIndex = tableButtonMap.get(button);
+        if(button == null) {
+            System.out.println("Here");
+        }
         if(game.makeTerm(tableIndex[0], tableIndex[2])) {
             label.setText(symbol);
+            label.setVisible(true);
         }
 
         if(game.isGameOver()) {
