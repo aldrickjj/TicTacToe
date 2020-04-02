@@ -57,6 +57,9 @@ public class HumanGameInterface implements GameInterface {
         }
         this.board[y][x] = symbol;
         moveNumber += 1;
+        if(isGameOver()) {
+            this.winner = this.term;
+        }
         changeTerm();
         return true;
     }

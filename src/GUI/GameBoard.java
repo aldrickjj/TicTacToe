@@ -83,9 +83,12 @@ public class GameBoard extends Application{
             } catch (Exception error) {
                 System.exit(0);
             }
+            String symbol = game.getCurrentSymbol();
             Label label = labelToButtonMap.get(button);
             Integer[] tableIndex = tableButtonMap.get(button);
-            
+            if(game.makeTerm(tableIndex[0], tableIndex[2])) {
+
+            }
         }
     }
 
