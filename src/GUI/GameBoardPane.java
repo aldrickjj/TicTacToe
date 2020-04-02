@@ -105,22 +105,6 @@ public class GameBoardPane {
         pane.getChildren().addAll(quitButton, restartButton, gameOverLabel);
     }
 
-    private void createTable() {
-        for(int i = 0; i < 5; i += 1) {
-            Line horizontalLine = new Line();
-            Line verticalLine = new Line();
-            horizontalLine.setEndX(500.0);
-            horizontalLine.setStartX(0.0);
-            horizontalLine.setLayoutX(0.0);
-            horizontalLine.setLayoutY(100.0 + (100.0 * i));
-            verticalLine.setEndY(500.0);
-            verticalLine.setStartY(0.0);
-            verticalLine.setLayoutY(100.0);
-            verticalLine.setLayoutX(100.0 * i);
-            pane.getChildren().addAll(horizontalLine, verticalLine);
-        }
-    }
-
     class TableButtonHandler implements EventHandler<ActionEvent> {
 
         @Override
