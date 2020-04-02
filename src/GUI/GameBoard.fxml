@@ -20,8 +20,8 @@
          </children></Pane>
      <Pane fx:id="footerPane" layoutX="0.0" layoutY="600.0" prefHeight="100.0" prefWidth="500.0">
          <children>
-            <Button layoutX="100.0" layoutY="35.0" mnemonicParsing="false" text="QUIT" />
-            <Button layoutX="350.0" layoutY="35.0" mnemonicParsing="false" text="RESTART" />
+            <Button fx:id="quitButton" layoutX="100.0" layoutY="35.0" mnemonicParsing="false" text="QUIT" />
+            <Button fx:id="restartButton" layoutX="350.0" layoutY="35.0" mnemonicParsing="false" text="RESTART" />
          </children></Pane>
       <Line endX="500.0" layoutX="0.0" layoutY="100.0" startX="0.0" />
       <Line endX="0.0" endY="500.0" layoutX="0.0" layoutY="100.0" startX="-0.5000152587890625" startY="0.0" />

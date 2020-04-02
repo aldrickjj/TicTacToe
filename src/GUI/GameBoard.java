@@ -28,6 +28,9 @@ public class GameBoard extends Application{
             tableButton16, tableButton17, tableButton18, tableButton19, tableButton20,
             tableButton21, tableButton22, tableButton23, tableButton24, tableButton25;
 
+    @FXML
+    Button quitButton, restartButton;
+
     @Override
     public void start(Stage stage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("GameBoard.fxml"));
