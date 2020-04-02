@@ -31,6 +31,13 @@ public class GameBoard extends Application{
     @FXML
     Button quitButton, restartButton;
 
+    @FXML
+    Label tableLabel1, tableLabel2, tableLabel3, tableLabel4, tableLabel5,
+            tableLabel6, tableLabel7, tableLabel8, tableLabel9, tableLabel10,
+            tableLabel11, tableLabel12, tableLabel13, tableLabel14, tableLabel15,
+            tableLabel16, tableLabel17, tableLabel18, tableLabel19, tableLabel20,
+            tableLabel21, tableLabel22, tableLabel23, tableLabel24, tableLabel25;
+
     @Override
     public void start(Stage stage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("GameBoard.fxml"));
