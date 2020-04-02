@@ -29,6 +29,8 @@ public class LaunchBoard extends Application {
     HashMap<Button, Label> labelToButtonMap = new HashMap<>();
     GameInterface game = new HumanGameInterface();
 
+    Label gameOverLabel = new Label();
+
     Button tableButton1, tableButton2, tableButton3, tableButton4, tableButton5,
             tableButton6, tableButton7, tableButton8, tableButton9, tableButton10,
             tableButton11, tableButton12, tableButton13, tableButton14, tableButton15,
@@ -39,6 +41,12 @@ public class LaunchBoard extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        gameOverLabel.setMinSize(500.0, 500.0);
+        gameOverLabel.setAlignment(Pos.CENTER);
+        gameOverLabel.setFont(new Font(100));
+        gameOverLabel.setLayoutX(0.0);
+        gameOverLabel.setLayoutY(100.0);
+        gameOverLabel.setVisible(false);
 
         Button[] tableButtonArray = {tableButton1, tableButton2, tableButton3, tableButton4, tableButton5,
                 tableButton6, tableButton7, tableButton8, tableButton9, tableButton10,
@@ -107,7 +115,7 @@ public class LaunchBoard extends Application {
         restartButton.setLayoutX(350.0);
         restartButton.setLayoutY(635.0);
 
-        pane.getChildren().addAll(quitButton, restartButton);
+        pane.getChildren().addAll(quitButton, restartButton, gameOverLabel);
 
         stage.setScene(new Scene(pane, 500, 700));
 
@@ -136,10 +144,11 @@ public class LaunchBoard extends Application {
             if(game.makeTerm(tableIndex[0], tableIndex[1])) {
                 label.setText(symbol);
                 label.setVisible(true);
-            }
-
-            if(game.isGameOver()) {
-                System.exit(0);
+                if(game.isGameOver()) {
+                    System.out.println("exit");
+                    gameOverLabel.setText(symbol + " Won!");
+                    gameOverLabel.setVisible(true);
+                }
             }
         }
     }
