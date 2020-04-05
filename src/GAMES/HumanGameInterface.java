@@ -159,6 +159,7 @@ public class HumanGameInterface implements GameInterface {
         this.moveNumber = 0;
         this.gameStarted = true;
         this.term = player1;
+        this.winner = null;
         clearBoard();
     }
 
