@@ -6,9 +6,15 @@ import javafx.stage.Stage;
 
 public class GuiController extends Application {
 
+    public GuiController(){
+
+    }
+
+    public void begin(String[] args){launch(args);}
+
     @Override
     public void start(Stage window) throws Exception {
-        Start startMenu = new Start();
+        Menu startMenu = new Menu();
         Game gameGUI = new Game();
         Scene startScene = gameGUI.getScene();
         window.setScene(startScene);

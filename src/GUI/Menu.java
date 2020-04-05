@@ -10,7 +10,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
-public class Start{
+public class Menu {
     private final ToggleGroup mode = new ToggleGroup();
     private RadioButton onePlayer;
     private RadioButton twoPlayer;
@@ -18,7 +18,7 @@ public class Start{
     private Label placeholder;
     private Scene scene;
 
-    public Start(){
+    public Menu(){
         //sets up buttons
         onePlayer = new RadioButton("1 Player");
         twoPlayer = new RadioButton("2 Players");
