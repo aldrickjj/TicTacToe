@@ -21,7 +21,7 @@ public class GameBoardPane {
     private GameInterface game;
 
     private Label gameOverLabel = new Label();
-    private Label currentTermLabel;
+    private Label currentTeamLabel;
 
     public GameBoardPane(GameInterface game) {
         this.game = game;
@@ -38,12 +38,12 @@ public class GameBoardPane {
         this.pane = new Pane();
 
         Label headerLabel = new Label();
-        setLabel(headerLabel, null, null, null, 98.0, 15.0, 24.0, null, "Current Term: ");
+        setLabel(headerLabel, null, null, null, 98.0, 15.0, 24.0, null, "Current Team: ");
 
-        currentTermLabel = new Label();
-        setLabel(currentTermLabel, null, null, null, 250.0, 15.0, 24.0, null, "X");
+        currentTeamLabel = new Label();
+        setLabel(currentTeamLabel, null, null, null, 250.0, 15.0, 24.0, null, "X");
 
-        pane.getChildren().addAll(headerLabel, currentTermLabel);
+        pane.getChildren().addAll(headerLabel, currentTeamLabel);
 
         for(int i = 0; i < 25; i += 1) {
             Label tableLabel = new Label();
@@ -120,16 +120,16 @@ public class GameBoardPane {
                     Player winner = game.getWinner();
                     if(winner != null) {
                         symbol = winner.getSymbol();
-                        currentTermLabel.setText(symbol + " Won!");
+                        currentTeamLabel.setText(symbol + " Won!");
                     }
                     else {
-                        currentTermLabel.setText("Tied!");
+                        currentTeamLabel.setText("Tied!");
                     }
                     gameOverLabel.setVisible(true);
                     return;
                 }
                 symbol = game.getCurrentSymbol();
-                currentTermLabel.setText(symbol.toUpperCase());
+                currentTeamLabel.setText(symbol.toUpperCase());
             }
         }
     }
@@ -147,7 +147,7 @@ public class GameBoardPane {
         @Override
         public void handle(ActionEvent e) {
             game.startGame();
-            currentTermLabel.setText("X");
+            currentTeamLabel.setText("X");
             List<Button> buttonList = new Vector<>(tableButtonMap.keySet());
             for(Button button : buttonList) {
                 Label label = labelToButtonMap.get(button);
