@@ -22,9 +22,11 @@ public class GameBoardPane {
 
     private Label gameOverLabel = new Label();
     private Label currentTeamLabel;
+    private Menu menu;
 
-    public GameBoardPane(GameInterface game) {
+    public GameBoardPane(GameInterface game, Menu menu) {
         this.game = game;
+        this.menu = menu;
         setUpPane();
     }
 

@@ -9,7 +9,7 @@ public class ComputerGameInterface implements GameInterface {
     private boolean gameOver;
     private boolean gameStarted;
 
-    public ComputerGameInterface(int boardDimension) {
+    public ComputerGameInterface() {
         this.player = createPlayer("Player", "X");
         this.pc = createPlayer("Computer", "O");
         this.board = new String[5][5];

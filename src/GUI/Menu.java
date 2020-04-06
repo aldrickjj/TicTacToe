@@ -19,9 +19,9 @@ public class Menu {
     private Scene scene;
     private int modeChoice = 0;
     private GameBoardPane onePlayerPane;
+    private GameBoardPane twoPlayerPane;
 
-    public Menu(GameBoardPane onePlayerPane){
-        this.onePlayerPane = onePlayerPane;
+    public Menu(){
         //sets up buttons
         onePlayer = new RadioButton("1 Player");
         twoPlayer = new RadioButton("2 Players");
@@ -47,6 +47,11 @@ public class Menu {
         scene = new Scene(grid, 500, 700);
     }
 
+    public void addModes(GameBoardPane onePlayerPane, GameBoardPane twoPlayerPane){
+        this.onePlayerPane = onePlayerPane;
+        this.twoPlayerPane = twoPlayerPane;
+    }
+
     public int getModeChoice() {return modeChoice;}
 
     public Scene getScene(){
@@ -61,7 +66,7 @@ public class Menu {
                 modeChoice = 1;
             }
             else if(twoPlayer.isSelected()){
-                scene.setRoot(onePlayerPane.getPane());
+                scene.setRoot(twoPlayerPane.getPane());
             }
             else{
                 //display message to choose one

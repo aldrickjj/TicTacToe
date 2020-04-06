@@ -1,5 +1,6 @@
 package GUI;
 
+import GAMES.ComputerGameInterface;
 import GAMES.HumanGameInterface;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -15,8 +16,11 @@ public class GuiController extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Tic Tac Toe");
-        GameBoardPane onePlayerPane = new GameBoardPane(new HumanGameInterface());
-        Menu startMenu = new Menu(onePlayerPane);
+        Menu startMenu = new Menu();
+        GameBoardPane onePlayerPane = new GameBoardPane(new ComputerGameInterface(), startMenu);
+        GameBoardPane twoPlayerPane = new GameBoardPane(new HumanGameInterface(), startMenu);
+        startMenu.addModes(onePlayerPane, twoPlayerPane);
+
         stage.setScene(startMenu.getScene());
         stage.show();
 
