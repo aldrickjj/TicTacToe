@@ -140,7 +140,7 @@ public class GameBoardPane {
 
         @Override
         public void handle(ActionEvent e) {
-            System.exit(0);
+            pane.getScene().setRoot(menu.getPane());
         }
     }
 

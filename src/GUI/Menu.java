@@ -20,6 +20,7 @@ public class Menu {
     private int modeChoice = 0;
     private GameBoardPane onePlayerPane;
     private GameBoardPane twoPlayerPane;
+    private GridPane pane;
 
     public Menu(){
         //sets up buttons
@@ -35,16 +36,16 @@ public class Menu {
         gap.setVisible(false);
 
         //makes pane and adds all buttons to plane
-        GridPane grid = new GridPane();
-        grid.add(onePlayer,0,0);
-        grid.add(gap, 1, 1);
-        grid.add(twoPlayer,2,0);
-        grid.add(start,1,3);
+        pane = new GridPane();
+        pane.add(onePlayer,0,0);
+        pane.add(gap, 1, 1);
+        pane.add(twoPlayer,2,0);
+        pane.add(start,1,3);
         //pane.add(gap, 1, 2);
-        grid.add(placeholder, 1, 4);
+        pane.add(placeholder, 1, 4);
 
         //makes scene
-        scene = new Scene(grid, 500, 700);
+        scene = new Scene(pane, 500, 700);
     }
 
     public void addModes(GameBoardPane onePlayerPane, GameBoardPane twoPlayerPane){
@@ -57,6 +58,8 @@ public class Menu {
     public Scene getScene(){
         return this.scene;
     }
+
+    public GridPane getPane() {return this.pane;}
 
     class modeSelectionHandler implements EventHandler<ActionEvent> {
         @Override
