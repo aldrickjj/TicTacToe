@@ -136,6 +136,18 @@ public class GameBoardPane {
         }
     }
 
+    public void reset(){
+        game.startGame();
+        currentTeamLabel.setText("X");
+        List<Button> buttonList = new Vector<>(tableButtonMap.keySet());
+        for(Button button : buttonList) {
+            Label label = labelToButtonMap.get(button);
+            label.setText("");
+            label.setVisible(false);
+        }
+        gameOverLabel.setVisible(false);
+    }
+
     class QuitButtonHandler implements EventHandler<ActionEvent> {
 
         @Override
@@ -148,15 +160,7 @@ public class GameBoardPane {
 
         @Override
         public void handle(ActionEvent e) {
-            game.startGame();
-            currentTeamLabel.setText("X");
-            List<Button> buttonList = new Vector<>(tableButtonMap.keySet());
-            for(Button button : buttonList) {
-                Label label = labelToButtonMap.get(button);
-                label.setText("");
-                label.setVisible(false);
-            }
-            gameOverLabel.setVisible(false);
+            reset();
         }
     }
 }

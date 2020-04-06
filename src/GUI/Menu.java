@@ -69,6 +69,7 @@ public class Menu {
                 modeChoice = 1;
             }
             else if(twoPlayer.isSelected()){
+                twoPlayerPane.reset();
                 scene.setRoot(twoPlayerPane.getPane());
             }
             else{
