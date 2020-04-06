@@ -17,8 +17,11 @@ public class Menu {
     private Button start;
     private Label placeholder;
     private Scene scene;
+    private int modeChoice = 0;
+    private GameBoardPane onePlayerPane;
 
-    public Menu(){
+    public Menu(GameBoardPane onePlayerPane){
+        this.onePlayerPane = onePlayerPane;
         //sets up buttons
         onePlayer = new RadioButton("1 Player");
         twoPlayer = new RadioButton("2 Players");
@@ -41,8 +44,10 @@ public class Menu {
         grid.add(placeholder, 1, 4);
 
         //makes scene
-        scene = new Scene(grid, 800, 600);
+        scene = new Scene(grid, 500, 700);
     }
+
+    public int getModeChoice() {return modeChoice;}
 
     public Scene getScene(){
         return this.scene;
@@ -53,22 +58,16 @@ public class Menu {
         public void handle(ActionEvent e) {
 
             if(onePlayer.isSelected()){
-                //start oneplayer mode
-                placeholder.setVisible(true);
-                placeholder.setTextFill(Color.RED);
-                placeholder.setText("1 player mode selected");
+                modeChoice = 1;
             }
             else if(twoPlayer.isSelected()){
-                //start twoplayer mode
-                placeholder.setVisible(true);
-                placeholder.setTextFill(Color.RED);
-                placeholder.setText("2 player mode selected");
+                scene.setRoot(onePlayerPane.getPane());
             }
             else{
                 //display message to choose one
                 placeholder.setVisible(true);
                 placeholder.setTextFill(Color.RED);
-                placeholder.setText("No valid mode selected");
+                placeholder.setText("No mode selected");
             }
         }
     }

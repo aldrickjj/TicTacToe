@@ -150,7 +150,11 @@ public class ComputerGameInterface implements GameInterface {
 
     @Override
     public void startGame() {
-
+        this.moveNumber = 0;
+        this.gameStarted = true;
+        this.term = player;
+        this.winner = null;
+        clearBoard();
     }
 
     @Override
