@@ -149,10 +149,10 @@ public class GameBoardPane {
                 currentTeamLabel.setText(symbol.toUpperCase());
             }
             if(game instanceof ComputerGameInterface && ((ComputerGameInterface) game).getMoveNumber()%2==1){
-                Button nextMove = getRandomButton();
+                Button computerMove = getRandomButton();
                 Timeline timeline = new Timeline(new KeyFrame(
                         Duration.millis(1500),
-                        ae -> nextMove.fire()));
+                        ae -> computerMove.fire()));
                 timeline.play();
             }
         }
