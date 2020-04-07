@@ -12,10 +12,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 public class Menu {
-    private final ToggleGroup mode = new ToggleGroup();
     private RadioButton onePlayer;
     private RadioButton twoPlayer;
-    private Button start;
     private Label placeholder;
     private Scene scene;
     private GameBoardPane onePlayerPane;
@@ -39,9 +37,10 @@ public class Menu {
         twoPlayer = new RadioButton("2 Players");
         twoPlayer.setLayoutX(320.0);
         twoPlayer.setLayoutY(350.0);
-        start = new Button("Start");
+        Button start = new Button("Start");
         start.setLayoutX(220.0);
         start.setLayoutY(400.0);
+        ToggleGroup mode = new ToggleGroup();
         onePlayer.setToggleGroup(mode);
         twoPlayer.setToggleGroup(mode);
         start.setOnAction(new modeSelectionHandler());
@@ -60,6 +59,7 @@ public class Menu {
         scene = new Scene(pane, 500, 700);
     }
 
+
     /**
      * Adds the Panes for the two modes to the menu
      * @param onePlayerPane the GameBoardPane for the one player mode
@@ -70,6 +70,7 @@ public class Menu {
         this.twoPlayerPane = twoPlayerPane;
     }
 
+
     /**
      * Simple getter for the Menu scene
      * @return the scene
@@ -78,11 +79,13 @@ public class Menu {
         return this.scene;
     }
 
+
     /**
      * Simple getter for the pane
      * @return the pane
      */
     public Pane getPane() {return this.pane;}
+
 
     /**
      * The handler for the start button, checks which button is selected

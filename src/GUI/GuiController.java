@@ -7,10 +7,12 @@ import javafx.stage.Stage;
 
 public class GuiController extends Application {
 
+
     /**
      * Constructor for the GuiController object
      */
     public GuiController(){}
+
 
     /**
      * Calls launch(args) which starts the JavaFX process
@@ -18,13 +20,13 @@ public class GuiController extends Application {
      */
     public void begin(String[] args){launch(args);}
 
+
     /**
      * Starts the GUI
      * @param stage the Stage where the scenes will be placed on
-     * @throws Exception - required by JavaFX, is unhandled
      */
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         stage.setTitle("Tic Tac Toe");
         Menu startMenu = new Menu();
         GameBoardPane onePlayerPane = new GameBoardPane(new ComputerGameInterface(), startMenu);
