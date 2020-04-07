@@ -17,7 +17,6 @@ public class Menu {
     private Button start;
     private Label placeholder;
     private Scene scene;
-    private int modeChoice = 0;
     private GameBoardPane onePlayerPane;
     private GameBoardPane twoPlayerPane;
     private GridPane pane;
@@ -53,8 +52,6 @@ public class Menu {
         this.twoPlayerPane = twoPlayerPane;
     }
 
-    public int getModeChoice() {return modeChoice;}
-
     public Scene getScene(){
         return this.scene;
     }
@@ -66,7 +63,8 @@ public class Menu {
         public void handle(ActionEvent e) {
 
             if(onePlayer.isSelected()){
-                modeChoice = 1;
+                onePlayerPane.reset();
+                scene.setRoot(onePlayerPane.getPane());
             }
             else if(twoPlayer.isSelected()){
                 twoPlayerPane.reset();

@@ -1,18 +1,19 @@
 package GAMES;
 
 public class ComputerGameInterface implements GameInterface {
-    private Player player, pc;
+    private Player player1, computer;
     private String[][] board = null;
-    private Player term = null;
+    private Player team = null;
     private Player winner = null;
     private int moveNumber = 0;
     private boolean gameOver;
     private boolean gameStarted;
 
     public ComputerGameInterface() {
-        this.player = createPlayer("Player", "X");
-        this.pc = createPlayer("Computer", "O");
+        this.player1 = createPlayer("Player 1", "X");
+        this.computer = createPlayer("Computer", "O");
         this.board = new String[5][5];
+        this.gameOver = false;
     }
 
     @Override
@@ -23,7 +24,7 @@ public class ComputerGameInterface implements GameInterface {
     @Override
     public void clearBoard() {
         for(int i = 0; i < board.length; i += 1) {
-            for(int j = 0; j < board[j].length; j += 1) {
+            for(int j = 0; j < board[i].length; j += 1) {
                 board[i][j] = " ";
             }
         }
@@ -31,7 +32,7 @@ public class ComputerGameInterface implements GameInterface {
 
     @Override
     public Player getCurrentPlayer() {
-        return this.term;
+        return this.team;
     }
 
     private boolean isMoveLegal(int x, int y) {
@@ -40,27 +41,32 @@ public class ComputerGameInterface implements GameInterface {
 
     @Override
     public boolean makeTerm(int x, int y) {
-        String symbol = this.term.getSymbol();
-        if(isMoveLegal(x, y)){
+        String symbol = this.team.getSymbol();
+        if(! isMoveLegal(x, y)){
             return false;
         }
         this.board[y][x] = symbol;
-        moveNumber += 1;
+        this.moveNumber += 1;
         if(isGameOver()) {
-            this.winner = this.term;
+            if(moveNumber != 25)
+                this.winner = this.team;
+            return true;
         }
-        changeTerm();
+        changeTeam();
         return true;
     }
 
     @Override
     public String getCurrentSymbol() {
-        return term.getSymbol();
+        return team.getSymbol();
     }
 
     @Override
     public boolean isGameOver() {
-        String symbol = this.term.getSymbol();
+        if(moveNumber == 25) {
+            return true;
+        }
+        String symbol = this.team.getSymbol();
         for(int i = 0; i < board.length; i += 1) {
             if(checkHorizontal(symbol, i) || checkVertical(symbol, i)) {
                 return true;
@@ -139,12 +145,12 @@ public class ComputerGameInterface implements GameInterface {
         return false;
     }
 
-    private void changeTerm() {
+    private void changeTeam() {
         if(moveNumber % 2 == 0) {
-            term = player;
+            team = player1;
         }
         else {
-            term = pc;
+            team = computer;
         }
     }
 
@@ -152,7 +158,7 @@ public class ComputerGameInterface implements GameInterface {
     public void startGame() {
         this.moveNumber = 0;
         this.gameStarted = true;
-        this.term = player;
+        this.team = player1;
         this.winner = null;
         clearBoard();
     }
