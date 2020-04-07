@@ -3,6 +3,8 @@ package GUI;
 import GAMES.ComputerGameInterface;
 import GAMES.GameInterface;
 import GAMES.Player;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -11,6 +13,7 @@ import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
+import javafx.util.Duration;
 
 import java.util.*;
 
@@ -147,7 +150,10 @@ public class GameBoardPane {
             }
             if(game instanceof ComputerGameInterface && ((ComputerGameInterface) game).getMoveNumber()%2==1){
                 Button nextMove = getRandomButton();
-                nextMove.fire();
+                Timeline timeline = new Timeline(new KeyFrame(
+                        Duration.millis(1500),
+                        ae -> nextMove.fire()));
+                timeline.play();
             }
         }
     }
