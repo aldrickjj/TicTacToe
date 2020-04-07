@@ -1,5 +1,6 @@
 package GUI;
 
+import GAMES.ComputerGameInterface;
 import GAMES.GameInterface;
 import GAMES.Player;
 import javafx.event.ActionEvent;
@@ -132,6 +133,9 @@ public class GameBoardPane {
                 }
                 symbol = game.getCurrentSymbol();
                 currentTeamLabel.setText(symbol.toUpperCase());
+            }
+            if(game instanceof ComputerGameInterface && ((ComputerGameInterface) game).getMoveNumber()%2==1){
+                Integer[] index = ((ComputerGameInterface) game).computerMakesMove();
             }
         }
     }

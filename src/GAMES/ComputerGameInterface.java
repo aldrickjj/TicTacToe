@@ -1,5 +1,7 @@
 package GAMES;
 
+import java.util.Random;
+
 public class ComputerGameInterface implements GameInterface {
     private Player player1, computer;
     private String[][] board = null;
@@ -55,6 +57,18 @@ public class ComputerGameInterface implements GameInterface {
         changeTeam();
         return true;
     }
+
+    public Integer[] computerMakesMove(){
+        Random rand = new Random();
+        int x = rand.nextInt(5);
+        int y = rand.nextInt(5);
+        if(makeTerm(x,y))
+            return new Integer[]{x,y};
+        else
+            return computerMakesMove();
+    }
+
+    public int getMoveNumber(){return this.moveNumber;}
 
     @Override
     public String getCurrentSymbol() {
