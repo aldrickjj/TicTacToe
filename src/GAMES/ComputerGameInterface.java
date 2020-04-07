@@ -1,7 +1,5 @@
 package GAMES;
 
-import java.util.Random;
-
 public class ComputerGameInterface implements GameInterface {
     private Player player1, computer;
     private String[][] board = null;
@@ -11,6 +9,9 @@ public class ComputerGameInterface implements GameInterface {
     private boolean gameOver;
     private boolean gameStarted;
 
+    /**
+     * Constructor for the ComputerGameInterface
+     */
     public ComputerGameInterface() {
         this.player1 = createPlayer("Player 1", "X");
         this.computer = createPlayer("Computer", "O");
@@ -18,11 +19,21 @@ public class ComputerGameInterface implements GameInterface {
         this.gameOver = false;
     }
 
+    /**
+     * Creates a player
+     * @param name The name of the player
+     * @param symbol Either "X" or "O"
+     * @return the created Player object
+     */
     @Override
     public Player createPlayer(String name, String symbol) {
         return new Player(name, symbol);
     }
 
+
+    /**
+     * Clears the board of any moves
+     */
     @Override
     public void clearBoard() {
         for(int i = 0; i < board.length; i += 1) {
@@ -32,15 +43,34 @@ public class ComputerGameInterface implements GameInterface {
         }
     }
 
+
+    /**
+     * Get the current Player
+     * @return the current team which is the Player
+     */
     @Override
     public Player getCurrentPlayer() {
         return this.team;
     }
 
+
+    /**
+     * Checks the legality of a move given an X and Y coordinate on the board
+     * @param x the x position of the spot
+     * @param y the y position of the spot
+     * @return True if the move is legal, false if it not legal
+     */
     public boolean isMoveLegal(int x, int y) {
         return this.board[y][x].equals(" ");
     }
 
+
+    /**
+     * Makes the turn given a spot on the board
+     * @param x the x position of the move
+     * @param y the y position of the move
+     * @return
+     */
     @Override
     public boolean makeTerm(int x, int y) {
         String symbol = this.team.getSymbol();
@@ -58,13 +88,26 @@ public class ComputerGameInterface implements GameInterface {
         return true;
     }
 
+
+    /**
+     * Getter for moveNumber
+     * @return the moveNumber
+     */
     public int getMoveNumber(){return this.moveNumber;}
 
-    @Override
-    public String getCurrentSymbol() {
-        return team.getSymbol();
-    }
 
+    /**
+     * Getter for the currentSymbol
+     * @return returns the currentSymbol based on whos turn it is, either "X" or "O"
+     */
+    @Override
+    public String getCurrentSymbol() {return team.getSymbol();}
+
+
+    /**
+     * Checks if the game is over, ie there is a winner
+     * @return returns true if there is a winner, false if there isn't
+     */
     @Override
     public boolean isGameOver() {
         if(moveNumber == 25) {
@@ -82,11 +125,23 @@ public class ComputerGameInterface implements GameInterface {
         return false;
     }
 
+
+    /**
+     * Checks if the game has started
+     * @return true if the game has started, false if it hasn't
+     */
     @Override
     public boolean gameStarted() {
         return this.gameStarted;
     }
 
+
+    /**
+     * Checks if there is 4 in a row on any horizontal
+     * @param symbol Either "X" or "O"
+     * @param index the x position on the board
+     * @return return false if there is not 4 in a row in any horizontal, true otherwise
+     */
     private boolean checkHorizontal(String symbol, int index) {
         int num_symbol = 0;
         for(int i = 0; i < board[index].length; i += 1) {
@@ -103,6 +158,13 @@ public class ComputerGameInterface implements GameInterface {
         return false;
     }
 
+
+    /**
+     * Checks the diagonals to see if there is 4 in a row on them
+     * @param symbol Either "X" or "O"
+     * @param side which diagonal to check
+     * @return true if there is 4 in a row on the specified diagonal, false if not
+     */
     private boolean checkDiagonal(String symbol, String side) {
         if(side.equalsIgnoreCase("right")) {
             if(board[0][3].equals(symbol) && board[1][2].equals(symbol) && board[2][1].equals(symbol) && board[3][0].equals(symbol)) {
@@ -133,6 +195,13 @@ public class ComputerGameInterface implements GameInterface {
         return false;
     }
 
+
+    /**
+     * Checks vertical columns to see if there are 4 in a row of any symbol there
+     * @param symbol Either "X" or "O"
+     * @param index Which column to check
+     * @return true if there is 4 in a row of a symbol there, false if there isn't
+     */
     private boolean checkVertical(String symbol, int index) {
         int num_symbol = 0;
         for(int i = 0; i < board.length; i += 1) {
@@ -149,6 +218,10 @@ public class ComputerGameInterface implements GameInterface {
         return false;
     }
 
+
+    /**
+     * Changes the team and updates the moveNumber variable and the team variable
+     */
     private void changeTeam() {
         if(moveNumber % 2 == 0) {
             team = player1;
@@ -158,6 +231,10 @@ public class ComputerGameInterface implements GameInterface {
         }
     }
 
+
+    /**
+     * Starts the game
+     */
     @Override
     public void startGame() {
         this.moveNumber = 0;
@@ -167,6 +244,11 @@ public class ComputerGameInterface implements GameInterface {
         clearBoard();
     }
 
+
+    /**
+     * Getter for the winner
+     * @return the winner field
+     */
     @Override
     public Player getWinner() {
         return this.winner;
