@@ -7,8 +7,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 public class Menu {
     private final ToggleGroup mode = new ToggleGroup();
@@ -19,29 +20,38 @@ public class Menu {
     private Scene scene;
     private GameBoardPane onePlayerPane;
     private GameBoardPane twoPlayerPane;
-    private GridPane pane;
+    private Pane pane;
 
     public Menu(){
         //sets up buttons
+        Label header = new Label();
+        header.setText("Ready to Start?\nSelect a mode.");
+        header.setFont(new Font(27));
+        header.setTextFill(Color.BLUE);
+        header.setLayoutX(160.0);
+        header.setLayoutY(200.0);
         onePlayer = new RadioButton("1 Player");
+        onePlayer.setLayoutX(100.0);
+        onePlayer.setLayoutY(350.0);
         twoPlayer = new RadioButton("2 Players");
+        twoPlayer.setLayoutX(320.0);
+        twoPlayer.setLayoutY(350.0);
         start = new Button("Start");
+        start.setLayoutX(220.0);
+        start.setLayoutY(400.0);
         onePlayer.setToggleGroup(mode);
         twoPlayer.setToggleGroup(mode);
         start.setOnAction(new modeSelectionHandler());
         placeholder = new Label("");
         placeholder.setVisible(false);
+        placeholder.setLayoutX(200.0);
+        placeholder.setLayoutY(440.0);
         Label gap = new Label("");
         gap.setVisible(false);
 
-        //makes pane and adds all buttons to plane
-        pane = new GridPane();
-        pane.add(onePlayer,0,0);
-        pane.add(gap, 1, 1);
-        pane.add(twoPlayer,2,0);
-        pane.add(start,1,3);
-        //pane.add(gap, 1, 2);
-        pane.add(placeholder, 1, 4);
+        //makes pane and adds all buttons and labels to plane
+        pane = new Pane();
+        pane.getChildren().addAll(header, onePlayer, twoPlayer, start, placeholder);
 
         //makes scene
         scene = new Scene(pane, 500, 700);
@@ -56,7 +66,7 @@ public class Menu {
         return this.scene;
     }
 
-    public GridPane getPane() {return this.pane;}
+    public Pane getPane() {return this.pane;}
 
     class modeSelectionHandler implements EventHandler<ActionEvent> {
         @Override

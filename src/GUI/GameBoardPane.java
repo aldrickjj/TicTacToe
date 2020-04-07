@@ -115,6 +115,7 @@ public class GameBoardPane {
 
         @Override
         public void handle(ActionEvent e) {
+            gameOverLabel.setVisible(false);
             if(! game.gameStarted()) {
                 game.startGame();
             }
@@ -149,6 +150,7 @@ public class GameBoardPane {
                 currentTeamLabel.setText(symbol.toUpperCase());
             }
             if(game instanceof ComputerGameInterface && ((ComputerGameInterface) game).getMoveNumber()%2==1){
+                gameOverLabel.setVisible(true);
                 Button nextMove = getRandomButton();
                 Timeline timeline = new Timeline(new KeyFrame(
                         Duration.millis(1500),
