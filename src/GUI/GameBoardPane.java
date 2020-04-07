@@ -97,6 +97,17 @@ public class GameBoardPane {
         widget.setLayoutY(yLayout);
     }
 
+    private Button getRandomButton(){
+        Random rand = new Random();
+        Object[] buttons = tableButtonMap.keySet().toArray();
+        Button randButton = (Button)buttons[rand.nextInt(buttons.length)];
+        Integer[] index = tableButtonMap.get(randButton);
+        if(((ComputerGameInterface)game).isMoveLegal(index[0], index[1]))
+            return randButton;
+        else
+            return getRandomButton();
+    }
+
     class TableButtonHandler implements EventHandler<ActionEvent> {
 
         @Override
@@ -135,7 +146,8 @@ public class GameBoardPane {
                 currentTeamLabel.setText(symbol.toUpperCase());
             }
             if(game instanceof ComputerGameInterface && ((ComputerGameInterface) game).getMoveNumber()%2==1){
-                Integer[] index = ((ComputerGameInterface) game).computerMakesMove();
+                Button nextMove = getRandomButton();
+                nextMove.fire();
             }
         }
     }

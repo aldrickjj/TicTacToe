@@ -37,7 +37,7 @@ public class ComputerGameInterface implements GameInterface {
         return this.team;
     }
 
-    private boolean isMoveLegal(int x, int y) {
+    public boolean isMoveLegal(int x, int y) {
         return this.board[y][x].equals(" ");
     }
 
@@ -56,16 +56,6 @@ public class ComputerGameInterface implements GameInterface {
         }
         changeTeam();
         return true;
-    }
-
-    public Integer[] computerMakesMove(){
-        Random rand = new Random();
-        int x = rand.nextInt(5);
-        int y = rand.nextInt(5);
-        if(makeTerm(x,y))
-            return new Integer[]{x,y};
-        else
-            return computerMakesMove();
     }
 
     public int getMoveNumber(){return this.moveNumber;}
