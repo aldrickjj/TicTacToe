@@ -86,6 +86,15 @@ public class Menu {
      */
     public Pane getPane() {return this.pane;}
 
+    /**
+     * Resets the menu
+     */
+    private void menuReset(){
+        placeholder.setVisible(false);
+        onePlayer.setSelected(false);
+        twoPlayer.setSelected(false);
+    }
+
 
     /**
      * The handler for the start button, checks which button is selected
@@ -96,10 +105,12 @@ public class Menu {
 
             if(onePlayer.isSelected()){
                 onePlayerPane.reset();
+                menuReset();
                 scene.setRoot(onePlayerPane.getPane());
             }
             else if(twoPlayer.isSelected()){
                 twoPlayerPane.reset();
+                menuReset();
                 scene.setRoot(twoPlayerPane.getPane());
             }
             else{
