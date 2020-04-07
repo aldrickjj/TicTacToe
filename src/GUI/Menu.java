@@ -22,6 +22,9 @@ public class Menu {
     private GameBoardPane twoPlayerPane;
     private Pane pane;
 
+    /**
+     * Constructor for Menu which also sets up the layout of the Menu
+     */
     public Menu(){
         //sets up buttons
         Label header = new Label();
@@ -57,17 +60,33 @@ public class Menu {
         scene = new Scene(pane, 500, 700);
     }
 
+    /**
+     * Adds the Panes for the two modes to the menu
+     * @param onePlayerPane the GameBoardPane for the one player mode
+     * @param twoPlayerPane the GameBoardPane for the two player mode
+     */
     public void addModes(GameBoardPane onePlayerPane, GameBoardPane twoPlayerPane){
         this.onePlayerPane = onePlayerPane;
         this.twoPlayerPane = twoPlayerPane;
     }
 
+    /**
+     * Simple getter for the Menu scene
+     * @return the scene
+     */
     public Scene getScene(){
         return this.scene;
     }
 
+    /**
+     * Simple getter for the pane
+     * @return the pane
+     */
     public Pane getPane() {return this.pane;}
 
+    /**
+     * The handler for the start button, checks which button is selected
+     */
     class modeSelectionHandler implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent e) {

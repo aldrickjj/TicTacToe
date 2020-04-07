@@ -3,15 +3,26 @@ package GUI;
 import GAMES.ComputerGameInterface;
 import GAMES.HumanGameInterface;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class GuiController extends Application {
 
+    /**
+     * Constructor for the GuiController object
+     */
     public GuiController(){}
 
+    /**
+     * Calls launch(args) which starts the JavaFX process
+     * @param args - the user input passed in from the BeginGame class, unused
+     */
     public void begin(String[] args){launch(args);}
 
+    /**
+     * Starts the GUI
+     * @param stage the Stage where the scenes will be placed on
+     * @throws Exception - required by JavaFX, is unhandled
+     */
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Tic Tac Toe");
