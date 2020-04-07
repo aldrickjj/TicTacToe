@@ -151,10 +151,10 @@ public class GameBoardPane {
             }
             if(game instanceof ComputerGameInterface && ((ComputerGameInterface) game).getMoveNumber()%2==1){
                 gameOverLabel.setVisible(true);
-                Button nextMove = getRandomButton();
+                Button computerMove = getRandomButton();
                 Timeline timeline = new Timeline(new KeyFrame(
                         Duration.millis(1500),
-                        ae -> nextMove.fire()));
+                        ae -> computerMove.fire()));
                 timeline.play();
             }
         }
