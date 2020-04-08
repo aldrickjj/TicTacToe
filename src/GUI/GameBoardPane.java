@@ -207,8 +207,10 @@ public class GameBoardPane {
                 gameOverLabel.setVisible(true);
                 Button computerMove = getRandomButton();
                 Timeline timeline = new Timeline(new KeyFrame(
-                        Duration.millis(1500),
-                        ae -> computerMove.fire()));
+                        Duration.millis(350),
+                        ae -> {
+                            if(((ComputerGameInterface) game).getMoveNumber()!=0)
+                                computerMove.fire();}));
                 timeline.play();
             }
         }
